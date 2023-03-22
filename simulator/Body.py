@@ -1,4 +1,4 @@
-
+import numpy as np
 
 
 
@@ -11,26 +11,14 @@ class Body:
         self.acceleration = acceleration
 
     def update_position(self):
-        x, y = self.position
 
         self.update_velocity()
         
-        vx, vy = self.velocity
-
-        x += vx
-        y += vy
-
-        self.position = (x, y)
+        self.position = np.add(self.position, self.velocity)
 
     def update_velocity(self):
 
-        vx, vy = self.velocity
-        ax, ay = self.acceleration
-
-        vx += ax
-        vy += ay
-
-        self.velocity = (vx, vy)
+        self.velocity = np.add(self.velocity, self.acceleration)
 
 
     def get_position(self):
