@@ -32,5 +32,7 @@ The program calculates the acceleration caused by gravity from each body for eac
 
 From the root folder run:
 ```
-python simulator/main
+$ pip install -r requirements.txt
+
+$ python simulator/main
 ```
