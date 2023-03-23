@@ -4,8 +4,9 @@ import numpy as np
 
 class Body:
 
-    def __init__(self, mass, color=(100, 100, 100), position=(0, 0), velocity=(0, 0), acceleration=(0, 0)):
+    def __init__(self, mass, radius=10, color=(100, 100, 100), position=(0, 0), velocity=(0, 0), acceleration=(0, 0)):
         self.mass = mass
+        self.radius = radius
         self.color = color
         self.position = position
         self.velocity = velocity
