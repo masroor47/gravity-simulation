@@ -68,7 +68,9 @@ def main():
 
     mars = Body(400, (200, 100, 100), (400, 373.20508), (1, -1.720508), (0, 0))
 
-    bodies = [moon, earth, mars]
+    pluto = Body(400, (200, 200, 200), (500, 500), (1, 0), (0, 0))
+
+    bodies = [moon, earth, mars, pluto]
 
 
 
