@@ -31,6 +31,14 @@ def accel_due_gravity(gravity, mass: float):
 
     return np.array(gravity) / mass
 
+
+
+def display_bodies(bodies):
+
+    for body in bodies:
+        pygame.draw.circle(win, (113, 113, 113), body.get_position(), 10)
+
+
     
 
 
@@ -49,6 +57,8 @@ def main():
     earth = Body(400, (200, 373.20508), (1, 1.720508), (0, 0))
 
     mars = Body(400, (400, 373.20508), (1, -1.720508), (0, 0))
+
+    bodies = [moon, earth, mars]
 
 
 
@@ -98,11 +108,13 @@ def main():
 
 
 
-        pygame.draw.circle(win, (113, 113, 113), moon.get_position(), 10)
+        # pygame.draw.circle(win, (113, 113, 113), moon.get_position(), 10)
 
-        pygame.draw.circle(win, (113, 200, 113), earth.get_position(), 20)
+        # pygame.draw.circle(win, (113, 200, 113), earth.get_position(), 20)
 
-        pygame.draw.circle(win, (200, 100, 100), mars.get_position(), 15)
+        # pygame.draw.circle(win, (200, 100, 100), mars.get_position(), 15)
+
+        display_bodies(bodies)
 
         pygame.display.update()
 
