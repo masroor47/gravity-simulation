@@ -14,7 +14,9 @@ $$ F = G \frac{m_1 \cdot m_2}{r^2}  $$
 
 Pay us and maybe we'll do Einstein tensors. Also, your machine probably can't handle that anyway.
 
-The formula above describes the gravitational 'force' between two objects in the absence of any other objects. But it wouldn't be fun if we couldn't simulate multiple objects.
+The formula above describes the gravitational 'force' between two bodies. Applying the formula for each pair of bodies, we get the acceleration at each moment in time.
+
+Supports N number of bodies with their own mass, initial position, velocity and acceleration. It wouldn't be fun if we couldn't simulate multiple objects.
 
 
 ## The Coding
@@ -30,7 +32,21 @@ The program calculates the acceleration caused by gravity from each body for eac
 
 ## How to use
 
-From the root folder run:
+Clone the git repository:
+```
+$ git clone https://github.com/masroor47/gravity-simulator.git
+```
+
+In the root folder create a virtual environment:
+```
+$ virtualenv venv
+```
+
+Mac / Linux
+```
+$ source venv/bin/activate
+```
+Install requirements and run:
 ```
 $ pip install -r requirements.txt
 
