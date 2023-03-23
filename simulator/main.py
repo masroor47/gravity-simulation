@@ -38,7 +38,21 @@ def display_bodies(bodies):
     for body in bodies:
         pygame.draw.circle(win, body.color, body.get_position(), 10)
 
+
+def dynamics(bodies: list[Body]):
+    for body in bodies:
+        body.acceleration = (0, 0)
+
+    for i, body1 in enumerate(bodies):
+        for j, body2 in enumerate(bodies[i+1:]):
+            current_force = gravity(body1, body2)
+            # print(f"{body1.acceleration}")
+            # print(f"{body2.acceleration}")
+            body2.acceleration = np.add(body2.acceleration, accel_due_gravity(current_force, body2.mass))
+            body1.acceleration = np.add(body1.acceleration, -accel_due_gravity(current_force, body1.mass))
         
+        body1.update_velocity()
+        body1.update_position()
 
 
 def main():
@@ -72,29 +86,30 @@ def main():
 
         win.fill((0, 0, 0))
 
-        moon_earth_gravity = gravity(moon, earth)
+        # moon_earth_gravity = gravity(moon, earth)
 
-        moon_mars_gravity = gravity(moon, mars)
+        # moon_mars_gravity = gravity(moon, mars)
 
-        mars_earth_gravity = gravity(mars, earth)
+        # mars_earth_gravity = gravity(mars, earth)
 
-        moon_acceleraton = accel_due_gravity(-moon_earth_gravity, moon.mass) + accel_due_gravity(-moon_mars_gravity, moon.mass)
-        earth_acceleration = accel_due_gravity(moon_earth_gravity, earth.mass) + accel_due_gravity(mars_earth_gravity, earth.mass)
-        mars_acceleration = accel_due_gravity(moon_mars_gravity, mars.mass) + accel_due_gravity(-mars_earth_gravity, mars.mass)
+        # moon_acceleraton = accel_due_gravity(-moon_earth_gravity, moon.mass) + accel_due_gravity(-moon_mars_gravity, moon.mass)
+        # earth_acceleration = accel_due_gravity(moon_earth_gravity, earth.mass) + accel_due_gravity(mars_earth_gravity, earth.mass)
+        # mars_acceleration = accel_due_gravity(moon_mars_gravity, mars.mass) + accel_due_gravity(-mars_earth_gravity, mars.mass)
 
 
-        moon.set_acceleration(moon_acceleraton)
-        earth.set_acceleration(earth_acceleration)
-        mars.set_acceleration(mars_acceleration)
+        # moon.set_acceleration(moon_acceleraton)
+        # earth.set_acceleration(earth_acceleration)
+        # mars.set_acceleration(mars_acceleration)
 
-        earth.update_velocity()
-        earth.update_position()
+        # earth.update_velocity()
+        # earth.update_position()
 
-        moon.update_velocity()
-        moon.update_position()
+        # moon.update_velocity()
+        # moon.update_position()
 
-        mars.update_velocity()
-        mars.update_position()
+        # mars.update_velocity()
+        # mars.update_position()
+        dynamics(bodies)
 
         # x, y = 
 
