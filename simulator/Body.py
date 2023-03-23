@@ -19,6 +19,9 @@ class Body:
     def update_velocity(self):
 
         self.velocity = np.add(self.velocity, self.acceleration)
+    
+    def set_acceleration(self, acceleration):
+        self.acceleration = acceleration
 
 
     def get_position(self):
