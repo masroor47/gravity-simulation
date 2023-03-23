@@ -36,13 +36,9 @@ def accel_due_gravity(gravity, mass: float):
 def display_bodies(bodies):
 
     for body in bodies:
-        pygame.draw.circle(win, (113, 113, 113), body.get_position(), 10)
+        pygame.draw.circle(win, body.color, body.get_position(), 10)
 
-
-    
-
-
-
+        
 
 
 def main():
@@ -52,11 +48,11 @@ def main():
     ax0, ay0 = 0, 0
 
 
-    moon = Body(400, (x0, y0), (vx0, vy0), (ax0, ay0))
+    moon = Body(400, position=(x0, y0), velocity=(vx0, vy0), acceleration=(ax0, ay0))
 
-    earth = Body(400, (200, 373.20508), (1, 1.720508), (0, 0))
+    earth = Body(400, (100, 200, 100), (200, 373.20508), (1, 1.720508), (0, 0))
 
-    mars = Body(400, (400, 373.20508), (1, -1.720508), (0, 0))
+    mars = Body(400, (200, 100, 100), (400, 373.20508), (1, -1.720508), (0, 0))
 
     bodies = [moon, earth, mars]
 
