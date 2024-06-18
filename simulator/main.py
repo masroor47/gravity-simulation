@@ -51,14 +51,16 @@ def dynamics(bodies: list[Body]):
         body1.update_position()
 
 def get_bodies():
-    sun = Body(3500, 15, (250, 250, 0), (400, 415.47), (0, 0), (0, 0))
+    sun = Body(3500, 15, (250, 250, 0), (400, 400), (0, 0))
 
-    mercury = Body(50, 5, (100, 100, 100), (400, 350), (-8, 0))
+    mercury = Body(50, 5, (100, 100, 100), (400, 335), (-8, 0))
 
-    earth = Body(50, 8, (100, 130, 200), (300, 473.20508), (4, 6.92820323), (0, 0))
+    earth = Body(50, 8, (100, 130, 200), (300, 458), (4, 6.92820323))
 
-    mars = Body(50, 7, (200, 100, 100), (600, 600), (3, -4), (0, 0))
-    phobos = Body(1, 3, (100, 100, 100), (620, 620), (4.2, -5.3), (0, 0))
+    mars = Body(50, 7, (200, 100, 100), (600, 585), (3, -4))
+    phobos = Body(1, 3, (100, 100, 100), (620, 605), (4.2, -5.3))
+
+    # pluto = Body(8, 4, (150, 150, 200), (700, 150), (-3.5, -2.6))
 
     return [sun, mercury, earth, mars, phobos]
 
@@ -72,7 +74,7 @@ def main():
     run = True
 
     while run:
-        pygame.time.delay(100)
+        pygame.time.delay(50)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
